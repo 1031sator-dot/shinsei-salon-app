@@ -1,0 +1,100 @@
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 20px 0 40px;
+}
+
+.carouselTrack {
+  position: relative;
+  aspect-ratio: 16 / 9; /* 画面幅に応じて高さが自動調整されます */
+  max-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .carouselTrack {
+    aspect-ratio: 4 / 3; /* スマホ向けに少し縦長にする */
+  }
+}
+
+.bannerCard {
+  position: absolute;
+  width: 70%;
+  max-width: 600px;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  cursor: grab;
+  will-change: transform, opacity;
+}
+
+.bannerCard:active {
+  cursor: grabbing;
+}
+
+.bannerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #fff; /* 余白ができる場合のための背景色 */
+  pointer-events: none; /* ドラッグ時の誤動作防止 */
+}
+
+/* 単一バナー用 */
+.singleBanner {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .singleBanner {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.singleBanner .bannerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ページネーション */
+.pagination {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.activeDot {
+  background: var(--primary, #5d4037);
+  width: 24px;
+  border-radius: 5px;
+}
